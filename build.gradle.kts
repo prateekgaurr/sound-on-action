@@ -41,6 +41,9 @@ tasks {
         sourceCompatibility = "21"
         targetCompatibility = "21"
     }
+    buildSearchableOptions {
+        enabled = false
+    }
 }
 
 kotlin {
