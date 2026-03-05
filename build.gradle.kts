@@ -17,19 +17,16 @@ repositories {
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
 dependencies {
     intellijPlatform {
-        intellijIdea("2025.2.4")
+        androidStudio("2024.2.1.11")
         testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
-
-
-        // Add plugin dependencies for compilation here, example:
-        // bundledPlugin("com.intellij.java")
+        bundledPlugin("com.intellij.java")
     }
 }
 
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "252.25557"
+            sinceBuild = "242"
         }
 
         changeNotes = """

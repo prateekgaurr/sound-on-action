@@ -20,6 +20,7 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
 
     <resource-bundle>messages.MyMessageBundle</resource-bundle>
     <!-- Extensions defined by the plugin.
@@ -27,5 +28,14 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="MyToolWindow" factoryClass="er.prateek.soundonaction.MyToolWindowFactory"
                     icon="AllIcons.Toolwindows.ToolWindowPalette"/>
+        
+        <!-- Register SoundManager as application service -->
+        <applicationService serviceImplementation="er.prateek.soundonaction.SoundManager"/>
+        
+        <!-- Register startup activity for file system listeners -->
+        <postStartupActivity implementation="er.prateek.soundonaction.SoundOnActionStartupActivity"/>
+        
+        <!-- Register build compilation listener -->
+        <compiler.compilationStatusListener implementation="er.prateek.soundonaction.BuildCompilationStatusListener"/>
     </extensions>
 </idea-plugin>
